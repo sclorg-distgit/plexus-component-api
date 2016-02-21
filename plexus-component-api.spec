@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        1.0
-Release:        0.16.alpha15.11%{?dist}
+Release:        0.16.alpha15.12%{?dist}
 Summary:        Plexus Component API
 
 License:        ASL 2.0
@@ -18,12 +18,12 @@ Source0:        plexus-component-api-1.0-alpha-15.tar.gz
 BuildArch: noarch
 
 BuildRequires:  %{?scl_prefix_java_common}maven-local
-BuildRequires:  maven30-maven-assembly-plugin
-BuildRequires:  maven30-maven-resources-plugin
-BuildRequires:  maven30-maven-site-plugin
-BuildRequires:  maven30-maven-plugin-plugin
-BuildRequires:  maven30-plexus-classworlds
-BuildRequires:  maven30-plexus-containers
+BuildRequires:  %{?scl_prefix}maven-assembly-plugin
+BuildRequires:  %{?scl_prefix}maven-resources-plugin
+BuildRequires:  %{?scl_prefix}maven-site-plugin
+BuildRequires:  %{?scl_prefix}maven-plugin-plugin
+BuildRequires:  %{?scl_prefix}plexus-classworlds
+BuildRequires:  %{?scl_prefix}plexus-containers
 
 %description
 Plexus Component API
@@ -39,13 +39,13 @@ API documentation for %{pkg_name}.
 %setup -q -n %{pkg_name}-%{project_version}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -56,6 +56,9 @@ set -e -x
 %files javadoc -f .mfiles-javadoc
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.0-0.16.alpha15.12
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 1.0-0.16.alpha15.11
 - maven33 rebuild
 
