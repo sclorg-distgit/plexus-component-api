@@ -5,7 +5,7 @@
 
 Name:           %{?scl_prefix}plexus-component-api
 Version:        1.0
-Release:        0.22.alpha15.1%{?dist}
+Release:        0.22.alpha15.2%{?dist}
 Summary:        Plexus Component API
 
 License:        ASL 2.0
@@ -54,6 +54,9 @@ rm -rf $(readlink -f %{_javadocdir}/%{pkg_name}) %{_javadocdir}/%{pkg_name} || :
 %files javadoc -f .mfiles-javadoc
 
 %changelog
+* Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 1.0-0.22.alpha15.2
+- Mass rebuild 2017-06-22
+
 * Wed Jun 21 2017 Java Maintainers <java-maint@redhat.com> - 1.0-0.22.alpha15.1
 - Automated package import and SCL-ization
 
